@@ -9,6 +9,13 @@ const orm = {
             cb(null, data);
         });
     },
+    insertOne: function (burgerName, cb) {
+        const sqlQuery = `INSERT INTO restaurant_burger(burger_name) VALUES('${burgerName}')`;
+        connection.query(sqlQuery, (err, data) => {
+            if (err) cb(err, null);
+            cb(null, data);
+        });
+    }
 };
 
 module.exports = orm;
