@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
             });
         }
         console.log('Burgers: ', burgers);
-        res.render("index", { burgers });
+        res.render("index", { burgers, style: 'index' });
     });
 });
 
