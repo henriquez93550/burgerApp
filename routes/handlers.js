@@ -14,7 +14,7 @@ router.get("/",  (req, res) => {
 });
 
 router.get('/favorites', (req, res) => {
-    orm.selectAllBy('is_favorite', true, function (error, result) {
+    orm.selectAllBy('is_favorite', true, (error, result) => {
         if (error) {
             return res.render('error');
         }
@@ -23,7 +23,7 @@ router.get('/favorites', (req, res) => {
 });
 
 router.get('/all', (req, res) => {
-    orm.selectAll(function (error, result) {
+    orm.selectAll( (error, result) => {
         if (error) {
             return res.render('error');
         }
@@ -70,12 +70,12 @@ router.delete('/delete/:id', (req, res) => {
     });
 });
 
-
+// deletes burgers
 router.put("/:id/:value", (req, res) => {
     const id = req.params.id;
     const value = JSON.parse(req.params.value);
 
-    orm.updateOne(value, id, function(error, burger) {
+    orm.updateOne(value, id, (error, burger) => {
         if (error) {
             return res.status(501).json({
                 message: 'Not able to add burger to your favorite'

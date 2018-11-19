@@ -62,7 +62,7 @@ const addBurgerToFavoriteFail = () => {
 };
 
 
-$(document).on('click', '.favorites', function() {
+$(document).on('click', '.favorites', () => {
     const id = $(this).attr('data-id');
     const value = $(this).attr('data-state');
 
@@ -84,7 +84,7 @@ const removeBurgerOnDelete = (burger) => {
     $(`.all-burgers .burger[data-id=${id}]`).remove();
 };
 
-
+// delete burger
 const removeBurgerFailed = () => {
     alert('Fail deleting burger');
 };
