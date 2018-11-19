@@ -10,14 +10,14 @@ const orm = {
             cb(null, data);
         });
     },
-    insertOne: function (burgerName, cb) {
+    insertOne: (burgerName, cb) => {
         const sqlQuery = `INSERT INTO restaurant_burger(burger_name) VALUES('${burgerName}')`;
         connection.query(sqlQuery, (err, data) => {
             if (err) cb(err, null);
             cb(null, data);
         });
     },
-    updateOne: function (condition, id, cb) {
+    updateOne: (condition, id, cb) => {
         const sqlQuery = `UPDATE restaurant_burger SET is_favorite = ${condition} WHERE id = ${id}`;
         connection.query(sqlQuery, function (err, data) {
             if (err) cb(err, null);

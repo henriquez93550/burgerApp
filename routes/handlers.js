@@ -1,11 +1,10 @@
-
 const express = require("express");
 const router = express.Router();
 const orm = require("../config/orm");
 
 // style is for css and picks the css file name
 router.get("/",  (req, res) => {
-    orm.selectAllBy('is_favorite', false, function (error, result) {
+    orm.selectAllBy('is_favorite', false, (error, result) => {
         if (error) {
             return res.render('error');
         }
@@ -38,7 +37,7 @@ router.post("/add", (req, res) => {
     const burgerName = req.body.burger_name;
     const isFavorite = req.body.isFavorite;
 
-    orm.insertOne(burgerName, function(error, burger) {
+    orm.insertOne(burgerName, (error, burger) => {
         if (error) {
             return res.status(401).json({
                 message: 'Not able to add the burger'
