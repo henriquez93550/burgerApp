@@ -1,31 +1,28 @@
-// Importing dependencies
 const express = require("express");
-const methodOverride = require("method-override");
-const bodyParser = require("body-parser");
-const exphbs = require("express-handlebars");
-
-// Importing files
-const routes = require("./routes/handlers");
 
 const PORT = process.env.PORT || 9001;
+
 const app = express();
 
-// Adds css from the public folder
-app.use(express.static('public'));
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static("public"));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(methodOverride("_method"));
+// Parse application body as JSON
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// Configure Express Handlebars
+// Set Handlebars.
+const exphbs = require("express-handlebars");
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Configure Routes
-app.use("/", routes);
+// Import routes and give the server access to them.
+const routes = require("./controllers/burgerController.js");
 
-// starts the server
+app.use(routes);
+
+// Start our server so that it can begin listening to client requests.
 app.listen(PORT, () => {
     console.log(`Server is starting at PORT ${PORT}`);
 });
-
