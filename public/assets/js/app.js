@@ -1,4 +1,4 @@
-$(() => {
+$(function() {
     $(".change-eaten").on("click", function(event) {
       const id = $(this).data("id");
       const newEaten = $(this).data("neweaten");
