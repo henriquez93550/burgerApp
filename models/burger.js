@@ -1,5 +1,5 @@
 // Import the ORM to create functions that will interact with the database.
-import orm from "../config/orm.js";
+const orm = require("../config/orm.js");
 
 const burger = {
   all(cb) {
@@ -26,4 +26,4 @@ const burger = {
 };
 
 // Export the database functions for the controller (catsController.js).
-export default burger;
+module.exports = burger;

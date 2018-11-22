@@ -1,5 +1,5 @@
 // Import MySQL connection.
-import connection from "../config/connection.js";
+const connection = require("../config/connection.js");
 
 // Helper function for SQL syntax.
 // Let's say we want to pass 3 values into the mySQL query.
@@ -29,8 +29,6 @@ function objToSql(ob) {
       if (typeof value === "string" && value.includes(" ")) {
         value = `'${value}'`;
       }
-      // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-      // e.g. {sleepy: true} => ["sleepy=true"]
       arr.push(`${key}=${value}`);
     }
   }
@@ -104,4 +102,4 @@ const orm = {
 };
 
 // Export the orm object for the model (cat.js).
-export default orm;
+module.exports = orm;
