@@ -1,4 +1,4 @@
-  button {
+button {
 	background-color: red;
     width: 250px;
     font-size: 20px;
@@ -30,10 +30,23 @@ h1 {
 body {
     background-image: url("https://craftburgercromer.co.uk/wp-content/uploads/2016/08/Wood-Background-1.jpg");
 }
-.form-group, footer, h2 {
+footer, h2, li {
     text-align: center;
     color: whitesmoke;
 }
 .buttonHolder{ 
     text-align: center; 
 }
+.form-group {
+    color: black;
+    text-align: center;
+}
+.change-devoured {
+    margin: 10px 10px 10px 10px;  
+    width: 200px;  
+}
+li {
+    /* Removes numbers from ol */
+    list-style: none;
+}
+

@@ -1,6 +1,6 @@
 const express = require("express");
 
-const PORT = process.env.PORT || 9001;
+const PORT = process.env.PORT || 9080;
 
 const app = express();
 
@@ -18,11 +18,11 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-const routes = require("./controllers/burgersController.js");
+const routes = require("./controllers/burgerController.js");
 
 app.use(routes);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, () => {
-    console.log(`Server is starting at PORT ${PORT}`);
+  console.log(`Server is starting at PORT ${PORT}`);
 });
