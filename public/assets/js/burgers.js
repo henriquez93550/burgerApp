@@ -29,7 +29,6 @@ $(() => {
 
     const newBurger = {
       name: $("#ba").val().trim(),
-      //sleepy: $("[name=devoured]:checked").val().trim()
     };
     console.log(newBurger);
 
